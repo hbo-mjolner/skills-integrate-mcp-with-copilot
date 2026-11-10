@@ -57,6 +57,37 @@ section h3 {
   color: #1a237e;
 }
 
+#account-container,
+#admin-container {
+  max-width: 1030px;
+}
+
+#signed-out {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 24px;
+}
+
+#signed-out h4 {
+  margin-bottom: 12px;
+  color: #1a237e;
+}
+
+.form-help {
+  margin-top: 10px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.secondary-button {
+  margin-left: 8px;
+  background-color: #555;
+}
+
+.secondary-button:hover {
+  background-color: #333;
+}
+
 .activity-card {
   margin-bottom: 15px;
   padding: 15px;
@@ -81,28 +112,22 @@ section h3 {
   border-top: 1px dashed #ccc;
 }
 
-.participants-section h5 {
+.participants-container h5 {
   margin-bottom: 8px;
   color: #1a237e;
   font-size: 16px;
 }
 
-.participants-section ul {
+.participants-list {
   list-style-type: none;
   padding-left: 5px;
 }
 
-.participants-section ul li {
+.participants-list li {
   padding: 4px 0;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-/* Remove the bullet point pseudo-element */
-.participants-section ul li::before {
-  display: none;
 }
 
 .participant-email {
@@ -125,11 +150,6 @@ section h3 {
   background-color: #ffebee;
 }
 
-.participants-section p {
-  color: #777;
-  font-style: italic;
-}
-
 .form-group {
   margin-bottom: 15px;
 }
@@ -141,7 +161,8 @@ section h3 {
 }
 
 .form-group input,
-.form-group select {
+.form-group select,
+.admin-user-controls select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
@@ -188,6 +209,26 @@ button:hover {
   border: 1px solid #bee5eb;
 }
 
+.admin-user {
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-user-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.admin-user-controls select {
+  min-width: 0;
+}
+
+.message {
+  overflow-wrap: anywhere;
+}
+
 .hidden {
   display: none;
 }
@@ -197,4 +238,18 @@ footer {
   margin-top: 30px;
   padding: 20px;
   color: #666;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 12px;
+  }
+
+  .admin-user-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .secondary-button {
+    margin: 8px 0 0;
+  }
 }
